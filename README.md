@@ -7,3 +7,5 @@ The online nature of the internship provided flexibility and convenience, enabli
 
 INTERNSHIP DURATION: 1 Month [15 Sept – 15 Oct 2025]
 MODE: Online
+
+![image alt](https://github.com/Rohitdeshmukh3/Prodigy-Infotech/blob/d0cc7191807ffd417d0db80daa426a387f35313f/image.png)
