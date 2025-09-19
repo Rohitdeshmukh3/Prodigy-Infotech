@@ -1,1 +1,147 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #f39c12;
+    --accent-color: #e74c3c;
+    --text-color-light: #ecf0f1;
+    --text-color-dark: #2c3e50;
+    --nav-bg-start: rgba(44, 62, 80, 0.8);
+    --nav-bg-end: rgba(26, 35, 45, 0.9);
+}
 
+body {
+    margin: 0;
+    padding-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    min-height: 200vh;
+    overflow-x: hidden; /* Prevents horizontal scrollbar from animation */
+    background: linear-gradient(45deg, #3498db, #8e44ad, #2980b9, #1abc9c);
+    background-size: 400% 400%;
+    animation: gradientShift 25s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Header and Navigation */
+#main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    background: var(--nav-bg-start);
+    backdrop-filter: blur(8px);
+    transition: all 0.5s ease-in-out, background 0.5s ease;
+    z-index: 1000;
+}
+
+#main-header.scrolled {
+    background: linear-gradient(90deg, var(--nav-bg-start) 0%, var(--nav-bg-end) 100%);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.01);
+}
+
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-color-light);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.logo a:hover {
+    color: var(--secondary-color);
+    transform: scale(1.05);
+    text-shadow: 0 0 10px var(--secondary-color);
+}
+
+/* Menu Links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0 1.5rem;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Polished hover effect with a glow */
+.nav-links li a:hover {
+    color: var(--secondary-color);
+    text-shadow: 0 0 8px var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, var(--accent-color), var(--secondary-color));
+    transition: width 0.3s ease-out;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger menu for mobile */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color-light);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 0;
+        flex-direction: column;
+        background: linear-gradient(to bottom, var(--nav-bg-start), var(--nav-bg-end));
+        height: 100vh;
+        width: 60%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0);
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
