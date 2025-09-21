@@ -38,5 +38,5 @@ The project showcases **HTML, CSS, and JavaScript** working together to create s
 ##  How to Run the Project  
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/your-username/responsive-landing-page.git
+   git clone (https://github.com/Rohitdeshmukh3/Prodigy-Infotech.git)
 
