@@ -1,1 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Stopwatch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <div class="stopwatch-container">
+        <h1>stop watch</h1>
+        <div id="display">00:00:00</div>
+        <div class="controls">
+            <button id="startBtn" class="btn">Start</button>
+            <button id="pauseBtn" class="btn" disabled>Pause</button>
+            <button id="lapBtn" class="btn" disabled>Lap</button>
+            <button id="resetBtn" class="btn" disabled>Reset</button>
+        </div>
+        <ul id="laps"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
