@@ -1,1 +1,182 @@
+:root {
+    --bg-dark: #121212;
+    --bg-medium: #1a1a1a;
+    --bg-light: #2c2c2c;
+    --watch-main: #333;
+    --watch-bezel: #555;
+    --digital-green: #0f0; /* Classic digital green glow */
+    --button-start: #4CAF50; /* Green */
+    --button-pause: #FFC107; /* Orange */
+    --button-lap: #03A9F4; /* Blue */
+    --button-reset: #F44336; /* Red */
+    --text-color-light: #ecf0f1;
+}
 
+body {
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars from background animation */
+    background: radial-gradient(circle at 10% 20%, var(--bg-dark) 0%, var(--bg-medium) 80%, var(--bg-light) 100%);
+    animation: backgroundShift 30s infinite alternate; /* Subtle background movement */
+}
+
+@keyframes backgroundShift {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.stopwatch-container {
+    position: relative;
+    background: radial-gradient(circle at top left, var(--watch-main) 0%, var(--watch-main) 70%, #222 100%);
+    padding: 50px 70px;
+    border-radius: 20px;
+    box-shadow: 
+        inset 0 0 20px rgba(0, 0, 0, 0.8), /* Inner shadow for depth */
+        0 15px 40px rgba(0, 0, 0, 0.7),    /* Main shadow */
+        0 0 80px rgba(0, 0, 0, 0.5);      /* Wider, softer shadow */
+    text-align: center;
+    border: 3px solid var(--watch-bezel);
+    transition: all 0.4s ease;
+    transform: perspective(1000px) rotateX(7deg) rotateY(-7deg) scale(0.95); /* Initial 3D tilt */
+}
+
+.stopwatch-container:hover {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);
+    box-shadow: 
+        inset 0 0 30px rgba(0, 0, 0, 0.9), 
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        0 0 100px rgba(0, 0, 0, 0.6);
+}
+
+/* Pseudo-element for inner bezel/frame */
+.stopwatch-container::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    pointer-events: none;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+h1 {
+    font-size: 1.6rem;
+    color: var(--digital-green);
+    margin-bottom: 25px;
+    text-shadow: 0 0 8px var(--digital-green);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#display {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: var(--digital-green);
+    text-shadow: 0 0 15px var(--digital-green), 0 0 25px rgba(0, 255, 0, 0.5);
+    background-color: #000;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 2px solid #080;
+    box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.3), 0 0 5px rgba(0, 255, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.controls {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between buttons */
+}
+
+.btn {
+    font-size: 0.95rem;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    color: white; /* All buttons text color */
+}
+
+#startBtn { background-color: var(--button-start); }
+#pauseBtn { background-color: var(--button-pause); }
+#lapBtn { background-color: var(--button-lap); }
+#resetBtn { background-color: var(--button-reset); }
+
+
+.btn:not(:disabled):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.5);
+    filter: brightness(1.1); /* Slightly brighter on hover */
+}
+
+.btn:not(:disabled):active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    filter: brightness(0.9); /* Slightly darker on click */
+}
+
+.btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#laps {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 25px;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 15px;
+    text-align: left;
+}
+
+#laps li {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollbar styling for a cleaner look */
+#laps::-webkit-scrollbar {
+    width: 8px;
+}
+
+#laps::-webkit-scrollbar-track {
+    background: var(--bg-medium);
+    border-radius: 10px;
+}
+
+#laps::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 10px;
+    border: 2px solid var(--bg-medium);
+}
+
+#laps::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
