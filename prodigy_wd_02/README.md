@@ -1,11 +1,11 @@
-# ⏱️ Stopwatch Web Application
+# ⏱ Stopwatch Web Application
 
 This is a simple and interactive **Stopwatch Web Application** built using **HTML, CSS, and JavaScript**.  
 It allows users to **start, pause, reset, and record lap times** with a modern UI and smooth animations.
 
 ---
 
-## 🚀 Features
+##  Features
 - Start, Pause, and Reset stopwatch
 - Record multiple lap times
 - Styled with a **digital neon green display**
@@ -15,19 +15,19 @@ It allows users to **start, pause, reset, and record lap times** with a modern U
 
 ---
 
-## 🛠️ Technologies Used
+## 🛠 Technologies Used
 - **HTML5** → for structure  
 - **CSS3** → for styling and animations  
 - **JavaScript (ES6)** → for stopwatch functionality  
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 │── index.html # Main HTML file
 │── style.css # Styling and animations
 │── script.js # Stopwatch logic
 │── README.md # Documentation
-🎮 Usage
+ Usage
 
 Start → Begins the stopwatch
 
