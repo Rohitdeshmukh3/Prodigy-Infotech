@@ -46,4 +46,4 @@ checkWinner(): After each move, this function iterates through a predefined list
 
 restartGame(): This function resets the board to its initial state, clearing the cells and variables to start a new game.
 
-![image alt]()
+![image alt](https://github.com/Rohitdeshmukh3/Prodigy-Infotech/blob/4d8c788e70471df67d8066de525c7a0ff34177cc/prodigy_wd_03/image.png)
