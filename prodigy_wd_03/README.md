@@ -26,7 +26,7 @@ Clone the Repository:
 
 Bash
 
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/Rohitdeshmukh3/Prodigy-Infotech.git
 Open the Game: Open the index.html file in your web browser.
 
 Start Playing: Click on any cell to place your mark ("X" or "O").
