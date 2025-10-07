@@ -46,4 +46,4 @@ checkWinner(): After each move, this function iterates through a predefined list
 
 restartGame(): This function resets the board to its initial state, clearing the cells and variables to start a new game.
 
-
+![image alt]()
