@@ -1,1 +1,29 @@
+Weather App
+A simple web application that fetches and displays real-time weather data based on a user's current location or a city they input. Built with HTML, CSS, and JavaScript using a public weather API.
 
+Features
+Displays weather data for the user's location or a searched city.
+
+Shows current weather conditions, temperature, humidity, and wind speed.
+
+Responsive and easy-to-use design.
+
+Demo
+You can view a screenshot of the app below:
+
+![Weather App Screenshot]( Replace or move your image to GitHub if needed. -->
+
+Technologies Used
+HTML
+
+CSS
+
+JavaScript
+
+Weather API (e.g., OpenWeatherMap)
+
+Getting Started
+Prerequisites
+Web browser (latest version recommended)
+
+Weather API key (e.g., from OpenWeatherMap)
